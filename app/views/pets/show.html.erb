@@ -2,10 +2,16 @@
 <h1>Pet info</h1>
 <h2><%= @pet.name %></h2>
 <p>Breed: <%= @pet.breed %></p>
+<p>Owner: <%= @pet.user.name.capitalize%>
+<br>
+<br>
 <img src="<%= @pet.image %>" width="500" height="400">
+<br>
 <br>
 <a href="/pets/<%= @pet.id %>/edit">Edit pet</a>
 <br>
+<br>
 <a href="/pets/<%= @pet.id %>" data-turbo-method="delete">Remove pet</a>
 <br>
-<a href="/pets">Back to all pets</a>
+<br>
+<a href="/pets">All pets</a>
