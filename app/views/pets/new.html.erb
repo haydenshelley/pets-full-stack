@@ -1,0 +1,19 @@
+<h1>New Pet</h1>
+<form method="post" action="/pets">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div>
+    <label>Name </label>
+    <input type="text" name="pet[name]">
+  </div>
+  <div>
+    <label>Breed </label>
+    <input type="text" name="pet[breed]">
+  </div>
+  <div>
+    <label>Image </label>
+    <input type="text" name="pet[image]">
+  </div>
+  <div>
+    <input type="submit" value="Create pet">
+  </div>
+</form>

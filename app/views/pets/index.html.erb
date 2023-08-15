@@ -1,8 +1,7 @@
 <h1>My Pets</h1>
 <% @pets.each do |pet| %>
   <h2><%= pet.name %></h2>
-  <p>Breed: <%= pet.breed %></p>
-  <img src="<%= pet.image %>" width="500" height="400">
-  <br>
   <a href="/pets/<%= pet.id %>">More info</a>
 <% end %>
+<br>
+<a href="/pets/new">Add pet</a>
