@@ -1,4 +1,4 @@
-<body style="text-align: center">
+<body style="text-align: center; background-color: #F0B27A">
 <h1>Pets</h1>
 <h1> --------------- </h1>
 <% @pets.each do |pet| %>
@@ -17,4 +17,9 @@
 <br>
 <a href="/signup">Create an account</a>
 <br>
-<h3>Current User: <%= current_user.name.capitalize %> </h3>
+<% if current_user %>
+  <%current = current_user.name.capitalize%>
+<% else %>
+  <%current = "No current user"%>
+<% end %>
+<h3>Current User: <%= current %><h3>
