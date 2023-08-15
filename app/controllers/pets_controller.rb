@@ -18,30 +18,43 @@ class PetsController < ApplicationController
     @pet = Pet.create(
       name: params[:pet][:name],
       breed: params[:pet][:breed],
-      image: params[:pet][:image]
+      image: params[:pet][:image],
+      user_id: current_user.id
     )
     redirect_to "/pets"
   end
 
   def edit
     @pet = Pet.find_by(id: params[:id])
-    render :edit
+    if @pet.user_id == current_user.id
+      render :edit
+    else
+      redirect_to "/pets"
+    end
   end
 
   def update
     @pet = Pet.find_by(id: params[:id])
-    @pet.update(
-      name: params[:pet][:name],
-      breed: params[:pet][:breed],
-      image: params[:pet][:image]
-    )
-    redirect_to "/pets"
+    if @pet.user_id == current_user.id
+      @pet.update(
+        name: params[:pet][:name],
+        breed: params[:pet][:breed],
+        image: params[:pet][:image]
+      )
+      redirect_to "/pets"
+    else
+      redirect_to "/pets"
+    end
   end
 
   def destroy
     @pet = Pet.find_by(id: params[:id])
-    @pet.destroy
-    redirect_to "/pets", status: :see_other
+    if @pet.user_id == current_user.id
+      @pet.destroy
+      redirect_to "/pets", status: :see_other
+    else  
+      redirect_to "/pets"
+    end
   end
 
 end
