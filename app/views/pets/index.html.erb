@@ -1,16 +1,17 @@
-<h1>My Pets</h1>
+<h1>Pets</h1>
+<h1> --------------- </h1>
 <% @pets.each do |pet| %>
   <h2><%= pet.name %></h2>
   <a href="/pets/<%= pet.id %>">More info</a>
 <% end %>
 <br>
-<br>
+<h1> --------------- </h1>
 <a href="/pets/new">Add pet</a>
-<br>
-<br>
-<a href="/signup">Create an account</a>
 <br>
 <br>
 <a href="/login">Log in</a>
 | |
 <a href="/logout">Log out</a>
+<br>
+<br>
+<a href="/signup">Create an account</a>
