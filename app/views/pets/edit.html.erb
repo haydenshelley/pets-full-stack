@@ -1,0 +1,20 @@
+<h1>Edit pet</h1>
+<form method="post" action="/pets/<%= @pet.id %>">
+  <input type="hidden" name="_method" value="patch" autocomplete="off">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div>
+    <label>Name </label>
+    <input type="text" name="pet[name]" value="<%= @pet.name %>">
+  </div>
+  <div>
+    <label>Breed </label>
+    <input type="text" name="pet[breed]" value="<%= @pet.breed %>">
+  </div>
+  <div>
+    <label>Image </label>
+    <input type="text" name="pet[image]" value="<%= @pet.image %>">
+  </div>
+  <div>
+    <input type="submit" value="Update pet">
+  </div>
+</form>

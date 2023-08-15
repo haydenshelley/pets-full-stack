@@ -22,4 +22,20 @@ class PetsController < ApplicationController
     )
     redirect_to "/pets"
   end
+
+  def edit
+    @pet = Pet.find_by(id: params[:id])
+    render :edit
+  end
+
+  def update
+    @pet = Pet.find_by(id: params[:id])
+    @pet.update(
+      name: params[:pet][:name],
+      breed: params[:pet][:breed],
+      image: params[:pet][:image]
+    )
+    redirect_to "/pets"
+  end
+  
 end
